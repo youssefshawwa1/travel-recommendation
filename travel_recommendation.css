@@ -1,5 +1,9 @@
 :root {
   --transition-time: 0.5s;
+  --main-font: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  --second-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --main-color: #017577;
+  --second-color: #015455;
 }
 * {
   box-sizing: border-box;
@@ -10,14 +14,15 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background: url("background.jpg") center/cover no-repeat fixed;
+  font-family: var(--main-font);
+  background: url("assets/background.jpg") center/cover no-repeat fixed;
   position: relative;
   min-height: 100vh;
 }
 /* Nav Bar */
 
 .nav-bar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,6 +30,8 @@ body {
   color: white;
   min-height: 4rem;
   padding: 0 1rem;
+  position: fixed;
+  z-index: 5;
 }
 .nav-bar ul {
   list-style: none;
@@ -48,14 +55,14 @@ body {
   max-height: 3rem !important;
 }
 .search-container input::placeholder {
-  color: #017577;
+  color: var(--main-color);
 }
 .search-buttons-container button {
   width: 4rem;
   margin: 0 0.2rem;
 }
 .btn {
-  background-color: #017577;
+  background-color: var(--main-color);
   color: white;
   padding: 0.6rem;
   border: none;
@@ -64,7 +71,7 @@ body {
   transition: var(--transition-time) ease-in-out;
 }
 .btn:hover {
-  background-color: #015455;
+  background-color: var(--second-color);
 }
 nav svg {
   width: 3rem;
@@ -90,16 +97,21 @@ nav svg {
   align-items: center;
   gap: 1rem;
 }
-
+aside svg {
+  fill: #ffffff;
+}
+aside ul li {
+  cursor: pointer;
+}
 /* Home */
 main {
   display: flex;
   margin: 0;
 }
 body::before {
+  position: fixed;
   z-index: -1;
   content: "";
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -120,6 +132,9 @@ aside {
   justify-content: center;
   flex-direction: column;
   margin-right: 3rem;
+  height: 90vh;
+  position: fixed;
+  margin-top: 3rem;
 }
 
 aside ul {
@@ -148,6 +163,7 @@ section {
   margin: 0 auto;
   padding: 10rem 0 0 0;
   justify-content: center;
+  width: 50%;
 }
 section h1 {
   width: 40%;
@@ -156,10 +172,15 @@ section h1 {
   font-size: 4rem;
 }
 section > p {
-  width: 30%;
+  width: 70%;
+  font-family: var(--second-font);
 }
 section button {
   margin: 4rem 0;
+}
+#main-section {
+  margin: 0;
+  margin-left: 8rem;
 }
 
 /* About Us */
@@ -170,7 +191,7 @@ section button {
   margin: 1rem 0;
   border-radius: 0.5rem;
   padding: 1rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--second-font);
   margin-bottom: 3rem;
 }
 
@@ -201,7 +222,7 @@ section button {
   padding-left: 0;
 }
 .team-member * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--second-font);
 }
 .team-member-info {
   display: flex;
@@ -219,8 +240,12 @@ section button {
   width: 100%;
   padding: 4px;
 }
-section.section-about {
-  padding: 3rem 0;
+.section-about {
+  width: 100%;
+}
+.section-about svg {
+  width: 3rem;
+  fill: #274385;
 }
 .active {
   color: #89b7b8 !important;
@@ -234,7 +259,7 @@ section.section-about {
   padding: 2rem 0;
 }
 .contact-us-form-container {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--second-font);
   background-color: #00000075;
   display: flex;
   flex-direction: column;
@@ -274,5 +299,42 @@ form {
   padding: 0;
 }
 form .btn {
+  margin: 1rem 0 0 0;
+}
+#search-result {
+  margin: 0;
+}
+/* search */
+.card {
+  background-color: white;
+  width: 20rem;
+  margin: auto;
+  height: 20rem;
+  position: relative;
+  font-family: var(--second-font);
+  border-radius: 0.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.card img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+.card p {
+  color: var(--second-color);
+}
+.card h3 {
+  color: var(--second-color);
+}
+
+.card-body {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.card button {
   margin: 1rem 0 0 0;
 }
